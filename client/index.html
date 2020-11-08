@@ -1,0 +1,204 @@
+<!doctype>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Game and chill</title>
+        <!-- Load Vue followed by Vue Router -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+
+        <!--<link rel="stylesheet" href="/css/memory.css">-->
+    </head>
+    <body>
+        <div id="app">
+          <header>
+            <h1>Game and chill</h1>
+            <div class="topnav">
+              <router-link to='/'><a class="active">Home</a></router-link>
+              <router-link to='/register'><a class="active">Register</a></router-link>
+              <div class="login-container">
+                  <form action="/action_page.php">
+                      <input type="text" placeholder="Pseudo" name="username">
+                      <input type="text" placeholder="Password" name="psw">
+                      <button type="submit">Login</button>
+                  </form>
+              </div>
+          </div>
+            
+          </header>
+          <!--<body>-->
+            <!--Memory-->
+            <!--<div id="app">
+              <div class="row">
+                  <div class="col-md-6 col-lg-6 col-xl-5 mx-auto">
+                       <div class="row justify-content-md-center">
+                        <div v-for="card in memoryCards" class="col-auto mb-3 flip-container" :class="{ 'flipped': card.isFlipped }" @click="flipCard(card)">
+                              <div class="memorycard">
+                                  <div class="front border rounded shadow"><img width="100" height="150" src="/assets/images/memorycard/pattern3.jpeg" alt=""></div>
+                                  <div class="back rounded border"><img width="100" height="150" :src="'/assets/images/memorycard/'+card.img" alt=""></div>
+                              </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </body>-->
+          <main>
+            <router-view
+              :games="games"
+              :comments="comments"
+              @add-user="addUser"
+              @login-user="loginUser"
+              @add-comment="addComment"
+              @delete-comment="deleteComment"
+              @update-comment="updateComment"
+              
+              @start-game="startGame"
+              @flip-card="flipCard"
+              @not-match='notMatch'
+              @match='match'
+              @check-match='checkMatch'
+              @reset-board='resetBoard'
+              @random-cards='randomCards'
+            ></router-view>
+          
+
+            
+          </main>
+
+          <footer>
+            <p>About us</p>
+            <p>Legal informations</p>
+            <p>credits : Florence NGUYEN and Julie NGAN</p>
+          </footer>
+        </div>
+        
+        <script src="/vue-application.js"></script>
+       
+    </body>
+</html>
+
+<style>
+  * {
+        box-sizing: border-box;
+        background-color: black;
+    }
+
+    /* Style the navbar */
+    .topnav, footer {
+        overflow: hidden;
+        background-color: black;
+    }
+
+    footer p{
+      color:aliceblue;
+    }
+
+        /* Navbar links */
+        .topnav a, router-link {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+            /* Navbar links on mouse-over */
+            .topnav a:hover, router-link:hover{
+                background-color: #ddd;
+                color: white;
+            }
+
+            /* Active/current link */
+            .topnav a.active, router-link.active {
+                background-color: #2196F3;
+                color: white;
+            }
+
+        /* Style the input container */
+        .topnav .login-container {
+            float: right;
+        }
+
+        /* Style the input field inside the navbar */
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+            width: 150px; /* adjust as needed (as long as it doesn't break the topnav) */
+        }
+
+        /* Style the button inside the input container */
+        .topnav .login-container button {
+            float: right;
+            padding: 6px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .topnav .login-container button:hover {
+                background: #ccc;
+            }
+
+    /* Add responsiveness - On small screens, display the navbar vertically instead of horizontally */
+    @media screen and (max-width: 600px) {
+        .topnav .login-container {
+            float: none;
+        }
+
+            .topnav a, topnav router-link, .topnav input[type=text], .topnav .login-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+        .topnav input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+
+    h1{
+        text-align : center;
+        font-size :45px;
+        color : dimgray;
+        font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    }
+
+  header{
+      background-color : lightgray;
+  }
+    .link {
+        text-decoration: none;
+    }
+    nav {
+        text-align: center;
+        text-decoration: none;
+    }
+
+        nav li {
+            display: inline-block;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 10px;
+            text-decoration: none;
+        }
+      .memory{
+        background-image: url(https://media4.s-nbcnews.com/j/newscms/2018_24/2462811/180612-memory-ideas-tricks-devices-ac-451p_d28ab24565f569bce0e8d5a1b052eab2.fit-760w.jpg);
+        
+      }
+
+</style>

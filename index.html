@@ -1,0 +1,86 @@
+<!doctype>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>games</title>
+        <!-- Load Vue followed by Vue Router -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="/css/tictactoe.css">
+    </head>
+    <body>
+        <div id="app">
+          <header>
+
+            <h1>Thao-Ly and Julie</h1>
+            <nav>
+
+
+             
+                    <ul class="menu">
+                        <li>
+                            <router-link to='/'>Accueil</router-link>
+                        </li>
+                       <!-- <li>
+                            <div class="link"><router-link to='/panier'>Panier</router-link></div>
+                        </li>-->
+
+                        <li>
+                          <router-link to='/register'>Register</router-link>
+                      </li>
+                      <li>
+                        <router-link to='/login'>Login</router-link>
+                      </li>
+                    </ul>
+
+           
+            </nav>
+          </header>
+          <main>
+            <router-view
+              :games="games"
+              @add-user="addUser"
+              @login-user="loginUser"
+            ></router-view>
+          </main>
+        </div>
+        <script src="https/cdn.jsdelivr.net/npm"></script>
+        <script src="/vue-application.js"></script>
+        <script src="/js/tictactoegame.js" charset="uft-8"></script>
+        <script src="/js/tictactoesquare.js" charset="uft-8"></script>
+        <script type="text/javascript">
+        
+          let activeGame = new Game();
+        </script>
+    </body>
+</html>
+
+<style>
+    h1{
+        text-align : center;
+        font-size :45px;
+        color : dimgray;
+        font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    }
+
+  header{
+      background-color : lightgray;
+  }
+    .link {
+        text-decoration: none;
+    }
+    nav {
+        text-align: center;
+        text-decoration: none;
+    }
+
+        nav li {
+            display: inline-block;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 10px;
+            text-decoration: none;
+        }
+</style>

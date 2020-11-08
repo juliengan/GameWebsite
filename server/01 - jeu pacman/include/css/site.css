@@ -1,0 +1,71 @@
+/**
+
+  The Initial Developer of the Original Code is
+  Matthieu  - http://www.programmation-facile.com/
+  Portions created by the Initial Developer are Copyright (C) 2013
+  the Initial Developer. All Rights Reserved.
+
+  Contributor(s) :
+
+ */
+
+
+body{
+  font-size: 12px;
+  font-family: Arial;
+}
+
+header { 
+  padding : 1px 0; 
+  background : #D8D8D8; 
+  text-align : center; 
+  font-weight : bold; 
+} 
+ 
+nav { 
+  font-size : 0.8em; 
+  list-style : none; 
+  text-align : center; 
+} 
+ 
+section { 
+  padding : 10px; 
+  margin-bottom: 20px;
+  background : #D8D8D8; 
+} 
+ 
+nav li { 
+  display : inline; 
+  padding : 1px; 
+} 
+ 
+ 
+.separateur { 
+  height : 1px; 
+  background : #717171; 
+  border-bottom : 1px solid #313030; 
+} 
+ 
+footer { 
+  font-weight : bold; 
+  background : #a9c6cb; 
+  text-align : center; 
+  padding : 10px;
+} 
+ 
+div.bienvenue { 
+  font-size : 1.5em; 
+  text-align : center; 
+  padding-bottom : 25px; 
+} 
+ 
+article { 
+  padding : 0 10px; 
+  padding-bottom : 25px; 
+}
+
+#idGameDiv {
+  height:450px;
+  width:342px;
+  margin:20px auto;
+}
