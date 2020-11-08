@@ -79,7 +79,7 @@ $(".btn-group-lg").on("click", function() {
 </script>
 
 <style scoped>
-form h2{
+h3,h2, p{
   color:aliceblue
 }
 
