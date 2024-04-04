@@ -1,5 +1,6 @@
-#website done by Florence NGUYEN and Julie NGAN
-#The website is about
+<h1>Game Website</h1>
+
+Play to PacMan
 
 # Install
 
